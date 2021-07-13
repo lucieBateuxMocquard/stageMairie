@@ -7,6 +7,9 @@
 <h1 class="text-center">Panier</h1>
 
 <?php 
+
+
+
 // Tu récupères tous les produits, tu joints la table boutiques pour pouvoir utilisé l'id boutique au produit quand id produit=?
   $stmt = $conn->prepare("SELECT * FROM produits JOIN boutiques ON produits.id_boutique = boutiques.id_boutique WHERE id_produit=?"); 
  
@@ -22,13 +25,13 @@
         echo"<div class='container m-2 border'>";
           echo "<div class='row'>";
             echo "<div class='col-3'>";
-              echo " <img src='/comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".filter_var($recup['nom-produit'], FILTER_SANITIZE_URL)."/".$recup['image']."' alt='".$recup['nom-produit']."'height=100px>";
+              echo " <img src='./comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".filter_var($recup['nom-produit'], FILTER_SANITIZE_URL)."/".$recup['image']."' alt='".$recup['nom-produit']."'height=100px>";
             echo "</div>";//fin de col 2
             echo "<div class='col-3'>";
               echo '<strong>'.$recup['nom-produit'].'</strong>'; 
             echo "</div>";//fin de col 3
             echo "<div class='col-3'>";
-              echo "quantité acheté"; 
+              echo "1"; 
             echo "</div>";//fin de col 4
             echo "<div class='col-3'>";
               echo $recup['prix'].' €';  
@@ -42,10 +45,24 @@
       echo "<div class=' border'>";
       echo'  <form method="post" action="panier.php" >';
      
-      echo'<a href="panier.php"  onClick="panierVider()" >Vider panier</a>';
+      echo'<a href="?action=suppression"  onClick="return(confirm(\'Etes-vous sûr ?\'))" >Vider panier</a>';
       echo" </form>";
       echo "</div>";// fin de border
       echo" </div>";// fin de col 6
+
+       // SUPPRESSION DU PANIER
+    
+    if( isset($_GET['action']) && $_GET['action'] == 'suppression') 
+    {
+      unset($_SESSION['panier']);
+      // header('location:panier.php');
+      echo '<script>
+      window.onload = function()
+      { 
+        window.location = "panier.php";
+      }
+      </script>';
+    }
 
     
 
@@ -58,21 +75,8 @@
       echo" </div>";// fin de col 7
     echo"</div>";// fin de row 1 
 ?>
-<script> 
-window.onload = function(){
 
-//   console.log('Blu'); 
 
-    function panierVider(){
-      alert('panier vider !');
-      console.log('Blo');
-      console.log('Blu');
-      windows.location = "fonctions/viderPanier.php";
-      console.log('Bli');
-      
-    } 
-} 
 
-</script>
 
 <?php include_once('footer/footer.php'); ?>

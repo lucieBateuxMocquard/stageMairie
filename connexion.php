@@ -2,6 +2,7 @@
 session_start();
   include_once('header.php');
   include_once('comptes/coBDD.php'); 
+  include_once('fonctions/fonction-connexion.php');
   ?>
    
    <?php
@@ -33,10 +34,9 @@ if (!empty($_POST))
       
       $_SESSION['id_compte_client']=$info_compte_client['id_compte_client'];
 
-      echo 'bon mdp !';
-    
-      
+      echo 'bon mdp !';  
     }
+
     else {
       echo 'mauvais mdp ou compte inexistant';
     }

@@ -27,7 +27,7 @@ session_start();
             // on affiche les résultats 
             echo "<div class='container'>";
             echo "<div class='p-5 m-5 border'>";
-            echo " <img src='/comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".$recup['logo']."' alt='".$recup['nom_boutique']."'>";
+            echo " <img src='./comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".$recup['logo']."' alt='".$recup['nom_boutique']."'>";
             echo 'nom boutique: <strong>'.$recup['nom_boutique'].'</strong><br/>';        
             echo 'description : '.$recup['description'].'<br /><br/>';
             echo "</div>\n";

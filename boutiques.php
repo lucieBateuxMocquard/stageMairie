@@ -22,7 +22,7 @@
             echo "<div class='container'>";
             echo "<div class='p-5 m-5 border'>";
             echo "<p class='text-center text-light'>";
-            echo " <img src='/comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".$recup['logo']."' alt='".$recup['nom_boutique']."'height=300px class='center-block'>";
+            echo " <img src='./comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".$recup['logo']."' alt='".$recup['nom_boutique']."'height=300px class='center-block'>";
             echo "</p>";// fin p
             echo '<strong>'.$recup['nom_boutique'].'</strong><br/>';        
             echo 'description : '.$recup['description'].'<br /><br/>';

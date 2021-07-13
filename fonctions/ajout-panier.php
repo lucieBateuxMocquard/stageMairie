@@ -7,7 +7,7 @@ if (isset($_GET['idproduit'])) // On a l'id du produit'
   array_push($_SESSION['panier'], $_GET['idproduit']);
 		
   echo 'Produit ajouté !</br></br>';
-  echo '<a href="/produits.php">Retourner aux produits</a>';
+  echo '<a href="../produits.php">Retourner aux produits</a>';
 }
 else // Il manque des paramètres, on avertit le visiteur
 {
