@@ -107,10 +107,11 @@ if( isset($_GET['action']) && $_GET['action'] == 'validercommande')
    $livraison = $conn->prepare("INSERT INTO livraison (etat, payement, telephone_client, date_du_jour) VALUES ('en cours de livraison', 'en cours de payement', 0637301388, NOW())");
    $livraison->execute();
     
-  // echo $conn->insert_id;
-
-  // ajouter les produits dans la table commande
+  // on récupère le dernier id de livraison
+  $lastId = $conn->query("SELECT LAST_INSERT_ID()");
   
+  // ajouter les produits dans la table commande
+
 
 }
 

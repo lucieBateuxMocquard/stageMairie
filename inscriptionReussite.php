@@ -1,1 +1,1 @@
-<h1>Inscription réussite !</h1>
+<!-- <h1>Inscription réussite !</h1> -->
