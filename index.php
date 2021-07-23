@@ -50,7 +50,7 @@ session_start();
 echo ' <div class="carousel-inner">';
 
 echo '   <div class="carousel-item active">';
-echo "<img src='/comptes/marchand/boutiques/".$recup['nom_boutique']."/".$recup['nom-produit']."/".$recup['image']."' alt='".$recup['nom-produit']."' height=300px class='d-block' >";
+echo "<img src='/comptes/marchand/boutiques/".$recup['nom_boutique']."/".$recup['nom_produit']."/".$recup['image']."' alt='".$recup['nom_produit']."' height=300px class='d-block' >";
 echo '   </div> ';//Fin carousel active 1ere page
 
 while ($recup = $produit->fetch()){ 

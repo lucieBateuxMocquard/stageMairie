@@ -22,13 +22,13 @@ session_start();
             echo "<div class=' m-5 border'>";
               echo "<p class='text-center'>";
               // Image
-                echo " <img src='./comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".filter_var($recup['nom-produit'], FILTER_SANITIZE_URL)."/".$recup['image']."' alt='".$recup['nom-produit']."' height=300px class='center-block'>";
+                echo " <img src='./comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".filter_var($recup['nom_produit'], FILTER_SANITIZE_URL)."/".$recup['image']."' alt='".$recup['nom_produit']."' height=300px class='center-block'>";
               echo "</p>";// fin p
               echo "<div class='bg-dark text-light '>";
                 echo "<div class='row p-3'>";
                   echo "<div class='col-4'>";
                   // nom produit
-                    echo '<strong>'.$recup['nom-produit'].'</strong>'; 
+                    echo '<strong>'.$recup['nom_produit'].'</strong>'; 
                   echo "</div>\n";// fin col
                   // quantité restante
                   echo "<div class='col-4 text-center text-light'>";
