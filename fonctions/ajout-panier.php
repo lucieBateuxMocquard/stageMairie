@@ -11,7 +11,7 @@ if (isset($_GET['idproduit'])) // On a l'id du produit'
 }
 else // Il manque des paramètres, on avertit le visiteur
 {
-	echo 'Erreur, velliez prevenir l\'administrateur.</br></br> Merci !';
+	echo 'Erreur, veulliez prevenir l\'administrateur.</br></br> Merci !';
 }
 
 

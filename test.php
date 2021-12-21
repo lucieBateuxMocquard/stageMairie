@@ -54,7 +54,7 @@
 
                 echo '<div class="carousel-caption d-none d-md-block">';
                     echo '<h5>'.$recup['nom-produit'].'</h5>';
-                    echo '<p>'.$recup['description'].'</p>';
+                    echo '<p>'.$recup['description_produit'].'</p>';
                 echo '</div>';
         echo '</div>';
     
@@ -68,7 +68,7 @@
                 echo "<img src='/comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".filter_var($recup['nom-produit'], FILTER_SANITIZE_URL)."/".$recup['image']."' alt='".$recup['nom-produit']."' height=300px class='d-block w-100' >";
                     echo '<div class="carousel-caption d-none d-md-block">';
                         echo '<h5>'.$recup['nom-produit'].'</h5>';
-                        echo '<p>'.$recup['description'].'</p>';
+                        echo '<p>'.$recup['description_produit'].'</p>';
                     echo '</div>';
             echo '</div>';
         echo ' </div>';

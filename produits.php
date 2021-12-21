@@ -41,7 +41,7 @@ session_start();
                 echo "</div>\n";//fin row
                 echo "<p class=' pl-2 pr-2'>";
                 // description
-                  echo 'description : '.$recup['description'].'<br /><br/>';
+                  echo 'description : '.$recup['description_produit'].'<br /><br/>';
                 echo "</p>";// fin p
 
                 echo "<div class='row p-3'>";
