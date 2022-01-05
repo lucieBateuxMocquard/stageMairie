@@ -43,14 +43,14 @@ session_start();
         <div class="row mb-3">
             <div class="col-12">
                 <hr>
-                <button type="submit" class="btn btn-primary w-100" onClick="return(confirm(\'Inscription réussite !\'))"> Inscription</button>
+                <button type="submit" class="btn btn-primary w-100" onClick='alert("Inscription reussie !")'> Inscription</button>
             </div>
         </div>
     </form>
   </div>
 </div>
 
-<?php include_once('footer/footer.php');?>
+<?php include_once('footer.php');?>
 
 <?php
             if(empty($_POST)) {

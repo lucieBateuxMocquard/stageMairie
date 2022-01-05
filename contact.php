@@ -1,7 +1,7 @@
 <?php  
 session_start();
-  include_once('../header.php'); 
-  include_once('../comptes/coBDD.php');
+  include_once('header.php'); 
+  include_once('comptes/coBDD.php');
   ?>
     <?php
 	if(isset($_POST['mailform'])) {
@@ -80,7 +80,7 @@ session_start();
         <div class="row mb-3">
             <div class="col-sm-6">
                 <hr>
-                <button type="submit" class="btn btn-primary w-100" onClick="Message envoyé !" name="mailform"> Envoyer</button>
+                <button type="submit" class="btn btn-primary w-100" name="mailform"> Envoyer</button>
             </div>
         </div>
     </form>

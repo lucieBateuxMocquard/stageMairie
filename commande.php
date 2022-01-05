@@ -122,4 +122,4 @@ if( isset($_GET['action']) && $_GET['action'] == 'validercommande')
 
 
 
-<?php include_once('footer/footer.php'); ?>
+<?php include_once('footer.php'); ?>

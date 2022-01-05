@@ -148,4 +148,4 @@ echo $msg; // affichage des messages pour l'utilisateur ?>
     </form>
   </div>
 </div>
-<?php include_once('footer/footer.php');?>
+<?php include_once('footer.php');?>

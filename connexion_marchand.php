@@ -72,4 +72,4 @@ if (!empty($_POST))
  
 </div>
 
-  <?php include_once('footer/footer.php'); ?>
+  <?php include_once('footer.php'); ?>

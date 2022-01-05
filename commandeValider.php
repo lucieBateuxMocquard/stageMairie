@@ -24,4 +24,4 @@ if( isset($_GET['action']) && $_GET['action'] == 'validecommande')
 ?>
 
 
-<?php include_once('footer/footer.php'); ?>
+<?php include_once('footer.php'); ?>
