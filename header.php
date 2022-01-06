@@ -21,7 +21,7 @@
   </head>
   <body>
 
-  <?php //include_once('nav.php'); ?>
+  <?php include_once('nav.php'); ?>
 
   <main class="bg-secondary min-vh-100 mb-5"> 
   
