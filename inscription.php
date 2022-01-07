@@ -88,13 +88,18 @@ echo $msg; // affichage des messages pour l'utilisateur
               $confirme_mdp = trim($_POST["confirme_mdp"]);
 
               $erreur = 'non';// on crée une variable avec une valeur par défaut. Cette variable est une variable de controle, si on rentre dans un cas d'erreur, on change sa valeur. Puis en testant la valeur de cette variable on saura si elle a sa valeur initiale : il n'y a pas eu d'erreur dans nos controle en revanche, si sa valeur a changée, alors il y a eu des erreurs dans nos controles.
-              echo $erreur;
-              //echo $_POST['prenom'] != NULL;
-              echo !empty($_POST['prenom']);
-              if ($erreur == 'non') 
-              {
-                echo $msg;
-              }
+             
+                //Vérifie si le format du prenom
+                if (!preg_match('#^[a-zA-ZàáâãäåçèéêëìíîïðòóôõöùúûüýÿÂÊÎÔÛÄËÏÖÜÀÆæÇÉÈŒœÙ -]+$#', $prenom)) {
+                  $erreur = 'oui';
+                  $msg .= '<div class="alert alert-danger mb-3">Attention,le format du prénom incorrect</div>';
+                } 
+
+                //Vérifie si le format du Nom
+                if (!preg_match('#^[a-zA-ZàáâãäåçèéêëìíîïðòóôõöùúûüýÿÂÊÎÔÛÄËÏÖÜÀÆæÇÉÈŒœÙ -]+$#', $nom)) {
+                  $erreur = 'oui';
+                  $msg .= '<div class="alert alert-danger mb-3">Attention, le format du nom incorrect</div>';
+                } 
 
                 // vérification du format de l'email
                 if( !filter_var($email, FILTER_VALIDATE_EMAIL) ) {
@@ -103,9 +108,12 @@ echo $msg; // affichage des messages pour l'utilisateur
                   $msg .= '<div class="alert alert-danger mb-3">Attention, Le format du mail est incorrect.</div>';
                 }
 
-                // vérification si l'email existe déjà
+                //Vérifie si le format du telephone est bon
+                if (!preg_match('#(0|\+33)[1-9]( *[0-9]{2}){4}$#', $telephone)) {
+                  $erreur = 'oui';
+                  $msg .= '<div class="alert alert-danger mb-3">Attention, Le format de numéro incorrect. Il faut 10 chiffres</div>';
+                } 
                 
-
                 // vérification si le mdp est vide
                 if(empty($mdp)) {
                   // cas d'erreur
@@ -113,6 +121,13 @@ echo $msg; // affichage des messages pour l'utilisateur
                   echo '<div class="alert alert-danger mb-3"> Attention, Le champ mot de passe est obligatoire.</div>';
                 }
                 
+                //Vérifie si le format du mdp est bon
+                if(!preg_match('((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@*\#$%-]).{8,20})', $mdp) || !preg_match('#^[a-zA-Z0-9àáâãäåçèéêëìíîïðòóôõöùúûüýÿÂÊÎÔÛÄËÏÖÜÀÆæÇÉÈŒœÙ@*\#$%-]+$#', $mdp)) {                  
+                  // cas d'erreur                  
+                  $erreur = 'oui';                  
+                  echo '<div class="alert alert-danger mb-3"> Attention, il faut 8 à 20 caractères, au moins une majuscule, au moins une minuscule, au moins un chiffre, au moins un caractère spécial parmis : @ * \ # $ % sans mettre d\'espace</div>';
+                }                
+
                 // vérification entre mdp et confirm_mdp
                 if($mdp != $confirme_mdp) {
                   // cas d'erreur
