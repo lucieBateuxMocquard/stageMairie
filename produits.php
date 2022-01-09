@@ -22,7 +22,8 @@ session_start();
             echo "<div class=' m-5 border'>";
               echo "<p class='text-center'>";
               // Image
-                echo " <img src='./comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".filter_var($recup['nom_produit'], FILTER_SANITIZE_URL)."/".$recup['image']."' alt='".$recup['nom_produit']."' height=300px class='center-block'>";
+              echo " <img src='".$recup['image_produit']."' height=300px class='img-fluid w-100'>";
+               // echo " <img src='./comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".filter_var($recup['nom_produit'], FILTER_SANITIZE_URL)."/".$recup['image']."' alt='".$recup['nom_produit']."' height=300px class='center-block'>";
               echo "</p>";// fin p
               echo "<div class='bg-dark text-light '>";
                 echo "<div class='row p-3'>";

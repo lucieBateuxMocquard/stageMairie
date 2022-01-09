@@ -9,20 +9,22 @@ session_start();
   <?php
 
     // ENREGISTREMENT DES PRODUITS
-    if( isset($_POST['nom_produit']) && isset($_POST['quantite']) && isset($_POST['prix']) && isset($_POST['description_produit']) && isset($_POST['boutique'])) 
+    if( isset($_POST['nom_produit']) && isset($_POST['quantite']) && isset($_POST['prix']) && isset($_POST['image_produit']) && isset($_POST['description_produit']) && isset($_POST['boutique'])) 
     {
         //création des variables
         $nom = trim($_POST['nom_produit']);
         $quantite  = trim($_POST['quantite']);
         $prix  = trim($_POST['prix']);
+        $image_produit  = trim($_POST['image_produit']);
         $description_produit  = trim($_POST['description_produit']);
         $boutique  = trim($_POST['boutique']);
 
         // enregistrement du produit
-        $enregistrement = $conn->prepare("INSERT INTO produits (nom_produit, quantite, prix, description_produit, id_boutique) VALUES (:nom_produit, :quantite, :prix, :description_produit, :boutique)");
+        $enregistrement = $conn->prepare("INSERT INTO produits (nom_produit, quantite, prix, image_produit, description_produit, id_boutique) VALUES (:nom_produit, :quantite, :prix, :image_produit, :description_produit, :boutique)");
         $enregistrement->bindParam(':nom_produit', $nom);
         $enregistrement->bindParam(':quantite', $quantite);
         $enregistrement->bindParam(':prix', $prix);
+        $enregistrement->bindParam(':image_produit', $image_produit);
         $enregistrement->bindParam(':description_produit', $description_produit);
   
         $enregistrement->bindParam(':boutique', $boutique);
@@ -40,7 +42,7 @@ session_start();
             <div class="col-sm-8 mx-auto">
                 <form method="post" action="" class="mt-5 border p-3">
                     <div class="mb-3">
-                        <label for="nom_produit">Nom produit</label>
+                        <label for="nom_produit">Nom du produit</label>
                         <input type="text" name="nom_produit" id="nom_produit" value="" class='form-control'>
                     </div>
                     <div class="mb-3">
@@ -50,6 +52,10 @@ session_start();
                     <div class="mb-3">
                         <label for="prix">Prix</label>
                         <input type="number" name="prix" id="prix" value="" max="10000" class='form-control'>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image_produit">Lien de l'image du produit</label>
+                        <input type="text" name="image_produit" id="image_produit" value="" class='form-control'>
                     </div>
                     <div class="mb-3">
                         <label for="description_produit">Description</label>
