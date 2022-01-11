@@ -8,17 +8,24 @@ session_start();
 <h1 class="text-center">Produits</h1>
 
 <?php
-        //On se connecte
-        // connectMaBase();
+     
  
         // On prépare la requête 
         $produit = $conn->query("SELECT * FROM produits JOIN boutiques ON produits.id_boutique = boutiques.id_boutique");  
+
+        // SUPPRESSION D'UN ARTICLE
+        // En cliquant sur le lien du tableau, on passe  dans l'url deux arguments $_GET : l'action et l'id_article
+        if( isset($_GET['action']) && $_GET['action'] == 'suppression' && !empty($_GET['id_produit']) ) {
+          $suppression = $conn->prepare("DELETE FROM produits WHERE id_produit = :id_produit");
+          $suppression->bindParam(':id_produit', $_GET['id_produit'], PDO::PARAM_STR);
+          $suppression->execute();
+      }
  
         //boucle
           echo "<div class='row'>";
         while ($recup = $produit->fetch()) { 
         // on affiche les résultats 
-          echo "<div class='col-6 '>";           
+          echo "<div class='col-6 '>"; // mettre col-sm a la place de col-6 pour le responsive      
             echo "<div class=' m-5 border'>";
               echo "<p class='text-center'>";
               // Image
@@ -27,7 +34,7 @@ session_start();
               echo "</p>";// fin p
               echo "<div class='bg-dark text-light '>";
                 echo "<div class='row p-3'>";
-                  echo "<div class='col-4'>";
+                  echo "<div class='col-4' >";
                   // nom produit
                     echo '<strong>'.$recup['nom_produit'].'</strong>'; 
                   echo "</div>\n";// fin col
@@ -47,21 +54,23 @@ session_start();
 
                 echo "<div class='row p-3'>";
                   echo "<div class='col-6'>";
-                echo "<p class=' pl-2 pr-2'>";
-                // nom de la boutique
-                  echo 'boutique : '.$recup['nom_boutique'].'<br /><br/>';
-                echo "</p>";// fin p
-                echo "</div>\n";// fin col  
+                    echo "<p class=' pl-2 pr-2'>";
+                    // nom de la boutique
+                    echo 'boutique : '.$recup['nom_boutique'].'<br /><br/>';
+                    echo "</p>";// fin p
+                  echo "</div>\n";// fin col  
 
-                echo "<div class='col-6 '>";
-              
-                
-             
-                echo '<a href="./fonctions/ajout-panier.php?idproduit='.$recup["id_produit"].'">Acheter</a>';
-               
-               
+                echo "<div class='col-6 '>";                          
+                  echo '<a href="./fonctions/ajout-panier.php?idproduit='.$recup["id_produit"].'">Acheter</a>';                        
                 echo "</div>\n";// fin col  
-                echo "</div>\n";//fin row
+              echo "</div>\n";//fin row
+
+              echo "<div class='row p-3'>";
+                echo "<div class='col-6'>";
+                //bouton supprimer
+                echo '<td><a href="?action=suppression&id_produit=' . $recup["id_produit"] . '" class="btn btn-danger" onclick="return(confirm(\'Etes-vous sûr ?\'))">Supprimer</a></td>';
+                echo "</div>\n";// fin col  
+              echo "</div>\n";//fin row
 
               echo "</div>\n";//fin div bg
             echo "</div>\n";//fin div border            
