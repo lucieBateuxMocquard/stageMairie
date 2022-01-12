@@ -1,5 +1,5 @@
 <?php 
-session_start();
+//session_start();
   include_once('header.php'); 
   // include_once('inscriptionReussite.php'); 
   include_once('comptes/coBDD.php');

@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 // fonction pour vérifier si l'utilisateur est connecté
 function user_is_connect() {
