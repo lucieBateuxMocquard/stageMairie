@@ -14,9 +14,9 @@
   <title>Site mairie</title>
 </head>
 <body>
-<h1 class="text-center  text-light">Bienvenue à la mairie !</h1> 
+<h1 class="text-center  text-light">Accueil</h1> 
     <div class='p-5 m-5'>
-    <p ><strong>Halvah chocolate bar cookie. Jujubes caramels candy canes oat cake gingerbread tootsie roll marzipan fruitcake gummies. Powder marzipan jelly sweet apple pie jelly beans. Gummi bears candy canes ice cream lollipop. Powder muffin fruitcake chocolate. Cotton candy croissant cake gingerbread oat cake marzipan powder cotton candy muffin. Sweet carrot cake jelly-o sweet roll toffee cotton candy chocolate cake cake. Cupcake pie lemon drops cheesecake marzipan liquorice sweet roll jujubes apple pie. Danish pie marshmallow lemon drops liquorice biscuit cake. Pie pudding brownie sugar plum cotton candy tart carrot cake. Sesame snaps lollipop danish dessert. Croissant sugar plum cake sugar plum toffee tootsie roll icing chocolate cake.</strong></p>
+    <p ><strong>Bienvenue sur la nouvelle plateforme de la mairie ! Vous trouverez sur ce site different produits de vos commerçants locaux.</strong></p>
     </div>
 </body>
 </html>

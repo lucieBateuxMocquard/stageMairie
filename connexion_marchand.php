@@ -16,7 +16,7 @@ if (!empty($_POST))
   
   if (isset($_POST['mdp']) && isset($_POST['email']))  
   {  
-    echo "bibou";
+   // echo "bibou";
     $mdp = $_POST['mdp'];
     $email = $_POST['email'];
 
@@ -34,7 +34,7 @@ if (!empty($_POST))
       
       $_SESSION['id_admin_boutique']=$info_compte_admin['id_admin_boutique'];
 
-      echo 'bon mdp !';  
+      echo 'Connecté !';  
     }
 
     else {
