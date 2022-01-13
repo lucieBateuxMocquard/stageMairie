@@ -25,7 +25,7 @@
         echo"<div class='container m-2 border'>"; // container 1
           echo "<div class='row'>"; // row 2
             echo "<div class='col-3'>"; // col 2
-              echo " <img src='./comptes/marchand/boutiques/".filter_var($recup['nom_boutique'], FILTER_SANITIZE_URL)."/".filter_var($recup['nom_produit'], FILTER_SANITIZE_URL)."/".$recup['image']."' alt='".$recup['nom_produit']."'height=100px>";
+              echo " <img src='".$recup['image_produit']."' alt='".$recup['nom_produit']."'height=100px>";
             echo "</div>";//fin de col 2
             echo "<div class='col-3'>"; // col 3
               echo '<strong>'.$recup['nom_produit'].'</strong>'; 
