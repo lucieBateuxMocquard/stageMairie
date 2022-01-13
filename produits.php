@@ -56,12 +56,12 @@
                   echo "<div class='col-6'>";
                     echo "<p class=' pl-2 pr-2'>";
                     // nom de la boutique
-                    echo 'boutique : '.$recup['nom_boutique'].'<br /><br/>';
+                    echo 'Boutique : '.$recup['nom_boutique'].'<br /><br/>';
                     echo "</p>";// fin p
                   echo "</div>\n";// fin col  
 
                 echo "<div class='col-6 '>";                          
-                  echo '<a href="./fonctions/ajout-panier.php?idproduit='.$recup["id_produit"].'">Acheter</a>';                        
+                  echo '<a href="./fonctions/ajout-panier.php?idproduit='.$recup["id_produit"].'" class="btn btn-info float-right">Acheter</a>';                        
                 echo "</div>\n";// fin col  
               echo "</div>\n";//fin row
 
