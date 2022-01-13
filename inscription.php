@@ -138,6 +138,7 @@ echo $msg; // affichage des messages pour l'utilisateur
                 //echo $erreur;
                 //On insère les données reçues si les champs sont remplis
                 if($erreur == 'non') {
+                  $hash = password_hash($mdp, PASSWORD_DEFAULT);
                   $resultat = $conn->prepare("INSERT INTO compte_client(prenom_compte_client, nom_compte_client, email_compte_client, tel_compte_client, adresse_compte_client, mdp_compte_client)
                       VALUES(:prenom, :nom, :email, :telephone, :adresse, :mdp)"); 
                                     
@@ -146,7 +147,7 @@ echo $msg; // affichage des messages pour l'utilisateur
                   $resultat->bindParam(':email',$email);
                   $resultat->bindParam(':telephone',$telephone);
                   $resultat->bindParam(':adresse',$adresse);
-                  $resultat->bindParam(':mdp',/* cryptage du mdp */password_hash($mdp, PASSWORD_DEFAULT));
+                  $resultat->bindParam(':mdp',/* cryptage du mdp */$hash);
                   //$resultat->debugDumpParams();
                   $resultat->execute();
                   return('inscriptionReussite.php');
@@ -172,7 +173,7 @@ echo $msg; // affichage des messages pour l'utilisateur
            }
            else{
             $erreur = 'oui';
-            echo 'test';
+            //echo 'test';
             $msg .= '<div class="alert alert-danger mb-3">Veillez remplir tous les champs.</div>';
             
            }
